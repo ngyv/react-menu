@@ -17,7 +17,7 @@ module.exports = {
 	module: {
 		loaders: [
 			{test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"},
-			{test: /\.css/, loaders: ['style', 'css?module&localIdentName=[local]---[hash:base64:5]', 'cssnext']}
+			{test: /\.css/, loaders: ['style-loader', 'css-loader?module&localIdentName=[local]---[hash:base64:5]', 'cssnext-loader']}
 		]
 	},
 	plugins: [HtmlWebpackPluginConfig]

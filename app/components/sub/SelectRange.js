@@ -11,7 +11,7 @@ function SelectRange (props) {
 }
 
 SelectRange.propTypes = {
-
+	css: PropTypes.object.isRequired
 }
 
 

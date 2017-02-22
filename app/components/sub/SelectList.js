@@ -11,7 +11,7 @@ function SelectList (props) {
 }
 
 SelectList.propTypes = {
-
+	css: PropTypes.object.isRequired
 }
 
 

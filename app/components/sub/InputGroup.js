@@ -10,7 +10,7 @@ function InputGroup (props) {
 }
 
 InputGroup.propTypes = {
-
+	css: PropTypes.object.isRequired
 }
 
 

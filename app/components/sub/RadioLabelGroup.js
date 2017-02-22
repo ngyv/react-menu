@@ -11,7 +11,7 @@ function RadioLabelGroup (props) {
 }
 
 RadioLabelGroup.propTypes = {
-
+	css: PropTypes.object.isRequired
 }
 
 module.exports = RadioLabelGroup;

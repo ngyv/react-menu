@@ -11,7 +11,7 @@ function RadioLabel (props) {
 }
 
 RadioLabel.propTypes = {
-
+	css: PropTypes.object.isRequired
 }
 
 
