@@ -1,36 +1,53 @@
 var React = require('react');
 var Menu = require('../components/Menu');
 
-function getMenuOptions () {
-	return [
-		'price', 'payment'
-	]
+var menuList = [
+	{
+		key: 'price',
+		label: 'Price',
+		triggerType: 'labelbutton',
+		reactType: 'input'
+	},
+	{
+		key: 'payment',
+		label: 'Payment method',
+		triggerType: 'labelbutton',
+		reactType: 'selectlist'
+	}
+];
+function getMenu (option) {
+	return (
+		<Menu key={option.key} triggerType={option.triggerType} label={option.label} reactType={option.reactType} 
+			isFocused={(this.state.isFocused === option.key)} onTriggered={this.handleTriggered(option.key)}  />
+	)
 }
-function getStateObject (type) {
-	var t = getMenuOptions().reduce(function (state, cur) {
-		state[cur + 'Focus'] = (cur === type);
-		return state;
-	}, {});
-	console.log(t);
-	return t;
+function getMenuList () {
+	return (
+		<div>
+			{menuList.map(getMenu.bind(this))}
+		</div>
+	)
 }
 
 var MenuContainer = React.createClass({
 	getInitialState: function () {
-		return getStateObject()
+		return {
+
+		}
 	},
 	handleTriggered: function (type) {
 		return function() {
-			this.setState(getStateObject(type))
+			this.setState({
+				isFocused: type
+			})
 		}.bind(this)
 	},
 	render: function () {
 		return (
 			<div>
-				<Menu triggerType='labelbutton' label='Price' reactType='input' isFocused={this.state.priceFocus} 
-					onTriggered={this.handleTriggered('price')}  />
-				<Menu triggerType='labelbutton' label='Payment type' reactType='selectlist' isFocused={this.state.paymentFocus} 
-					onTriggered={this.handleTriggered('payment')}  />
+			{
+				getMenuList.bind(this)()
+			}
 			</div>
 		)
 	}

@@ -13,7 +13,7 @@ function getClassNames (props) {
 	)
 }
 function MenuTrigger (props) {
-	return <div className={getClassNames(props)} onClick={props.onTriggered} >{props.type}</div>
+	return <div className={getClassNames(props)} onClick={props.onTriggered} >Menu Trigger: {props.type}</div>
 }
 
 
