@@ -9,6 +9,7 @@
     "build": "react-scripts build"
   },
   "author": "Yvonne Ng [ngdotyvonne@gmail.com][github.com/ngyv]",
+  "homepage": "https://github.com/ngyv/react-menu",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.22.1",
