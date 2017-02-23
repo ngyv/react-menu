@@ -9,7 +9,7 @@ var MenuContainer = require('../containers/MenuContainer');
 
 var routes = (
 	<Router history={hashHistory}>
-		<Route path='/' component={MenuContainer}>
+		<Route path='/react-menu/' component={MenuContainer}>
 		</Route>
 	</Router>
 );
