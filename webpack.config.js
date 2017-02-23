@@ -1,6 +1,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-	template: __dirname + '/app/index.html',
+	template: __dirname + '/src/index.html',
 	filename: 'index.html',
 	inject: 'body'
 });
@@ -8,7 +8,7 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
 	entry: [
-		'./app/index.js'
+		'./src/index.js'
 	],
 	output: {
 		path: __dirname + '/build',
