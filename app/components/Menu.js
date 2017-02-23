@@ -3,22 +3,19 @@ var PropTypes = React.PropTypes;
 var MenuTrigger = require('../components/MenuTrigger');
 var MenuReact = require('../components/MenuReact');
 
-var menuCss = require('../styles/menu.css');
+var menuCss = require('../styles/menu.less');
 
-/*  This is the demo of the different menu components together
- */
+//  This is the demo of the different menu components together
+
 function Menu (props) {
 	return (
 		<div>
-			<MenuTrigger type='Label button'/>
-			<MenuReact type='inputgroup'/>
+			<MenuTrigger css={menuCss} type={props.triggerType} label={props.label} isFocused={props.isFocused} onTriggered={props.onTriggered} />
+			<MenuReact css={menuCss} type={props.reactType} isFocused={props.isFocused} />
 		</div>
 	)
 }
 
 
-Menu.propTypes = {
-	reactType: PropTypes.string.isRequired
-}
 
 module.exports = Menu;
