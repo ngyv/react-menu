@@ -9,7 +9,7 @@
   },
   "author": "Yvonne Ng [ngdotyvonne@gmail.com][github.com/ngyv]",
   "license": "ISC",
-  "homepage": "http://ngyv.github.io/react-menu"
+  "homepage": "https://ngyv.github.io/react-menu",
   "devDependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
