@@ -1,5 +1,6 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
+var classnames = require('classnames');
 
 //---	  Menu Components          ---//
 var Input = require('../components/sub/Input');
@@ -17,10 +18,19 @@ var radioLabelGroupCss = require('../styles/radioLabelGroup.less');
 var selectListCss = require('../styles/selectList.less');
 var selectRangeCss = require('../styles/selectRange.less');
 
+
+
+function getClassNames (props) {
+	return classnames(
+		props.css.menu_react,
+		props.isFocused ? props.css.show : ''
+	)
+}
+
 /* This is where you decide which menu component to show depending on the props that was passed. */
 function MenuReact (props) {
 	return (
-		<div className={props.css.menu_react, (props.isFocused && props.css.show)}>
+		<div className={getClassNames(props)}>
 			Menu React :
 			{props.type === 'input' && <Input css={inputCss}  />}
 			{props.type === 'inputgroup' && <InputGroup css={inputGroupCss}  />}
