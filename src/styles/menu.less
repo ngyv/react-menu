@@ -20,6 +20,7 @@ body {
 
 
 //-- Menu styles
+//   Colours
 @background-color: #278481;
 @background-highlight-color: #2f827e;
 @background-hover-highlight-color: #41a29e;
@@ -29,18 +30,33 @@ body {
 @border-highlight-color: #fff;
 @react-background-color: #50928f;
 
+//   Screen breakpoints
+@screen-xxs: 320px; // iPhone 4, 5
+@screen-xs: 480px;
+@screen-xs-max: 767px;
+@screen-sm-min: 768px;
+@screen-sm-max: 991px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+
+
+//   Misc
 @default-border-width: 2px;
 @default-border-style: @default-border-width solid @border-color;
 
-.menu_container {
-	position: relative;
+.menu_container, .menu_container_mobile {
 	background: @background-color;
 	color: @trigger-font-color;
 	border: @default-border-style;
+}
 
-	& + .menu_container {
-		border-left: 0;
-	}
+.menu_container_mobile {
+	display: none;
+}
+
+.menu_item_container {
+	position: relative;
+	border-right: @default-border-style;
 }
 .menu_trigger {
 	min-width: 150px;
@@ -55,7 +71,6 @@ body {
 		background: @background-hover-highlight-color;
 		border-color: @border-highlight-color;
 	}
-	
 }
 
 .menu_react {
@@ -66,7 +81,22 @@ body {
 
 	&.show {
 		display: block;
-		width: 100%;
+		width: 102%;    
+    	left: -1%;
 		position: absolute; // so that it doesn't stretch .flex_container and onClickOutside can work proper
+	}
+}
+
+
+// Mobile devices
+@media screen and (max-width: @screen-xs) {
+	.menu_container_mobile {
+		display: block;
+		padding: 6px 15px;
+	}
+	.flex_container {
+		display: none;
+		flex-direction: column;
+		align-items: stretch;
 	}
 }

@@ -10,7 +10,7 @@ var menuCss = require('../styles/menu.less');
 function constructMenu (key) {
 	var option = this.menuList[key];
 	return (
-		<span key={key} className={menuCss.menu_container}>
+		<span key={key} className={menuCss.menu_item_container}>
 
 			<MenuTrigger css={menuCss} type={option.triggerType} label={option.label} sublabel={option.sublabel} 
 				isFocused={(this.inFocus === key)}  onTriggered={this.handleTriggered(key)} />
@@ -30,8 +30,13 @@ function constructMenuList (props) {
 //  This is the demo of the different menu components together
 function Menu (props) {
 	return (
-		<div className={menuCss.flex_container}>
-			{constructMenuList(props)}
+		<div>
+			<div className={menuCss.menu_container_mobile}>
+				Mobile Menu Component
+			</div>
+			<div className={classnames(menuCss.flex_container, menuCss.menu_container)}>
+				{constructMenuList(props)}
+			</div>
 		</div>
 	)
 }
