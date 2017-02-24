@@ -7,28 +7,39 @@ var classnames = require('classnames');
 var menuCss = require('../styles/menu.less');
 
 
-function getMenu (option) {
+function constructMenu (key) {
+	var option = this.menuList[key];
 	return (
-		<span key={option.key} className={menuCss.menu_container}>
-			<MenuTrigger css={menuCss} type={option.triggerType} label={option.label} isFocused={(this.inFocus === option.key)} onTriggered={this.handleTriggered(option.key)} />
-			<MenuReact css={menuCss} type={option.reactType} isFocused={(this.inFocus === option.key)} />
+		<span key={key} className={menuCss.menu_container}>
+
+			<MenuTrigger css={menuCss} type={option.triggerType} label={option.label} sublabel={option.sublabel} 
+				isFocused={(this.inFocus === key)}  onTriggered={this.handleTriggered(key)} />
+
+			<MenuReact css={menuCss} type={option.reactType} isFocused={(this.inFocus === key)} name={key} value={option.value} 
+				onChangeValue={this.handleChangeValue} 
+				selectionList={ (option.selectionList && option.selectionList.length) ? option.selectionList : undefined} />
+
 		</span>
 	)
 }
 
+function constructMenuList (props) {
+	return Object.keys(props.menuList).map(constructMenu.bind(props))
+}
 
 //  This is the demo of the different menu components together
 function Menu (props) {
 	return (
 		<div className={menuCss.flex_container}>
-			{props.menuList.map(getMenu.bind(props))}
+			{constructMenuList(props)}
 		</div>
 	)
 }
 
 Menu.propTypes = {
-	menuList: PropTypes.array.isRequired,
-	handleTriggered: PropTypes.func.isRequired
+	menuList: PropTypes.object.isRequired,
+	handleTriggered: PropTypes.func.isRequired,
+	handleChangeValue: PropTypes.func.isRequired
 }
 
 module.exports = Menu;

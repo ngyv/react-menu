@@ -26,7 +26,7 @@ function getClassNames (props) {
 function MenuTrigger (props) {
 	return (
 		<div className={getClassNames(props)} onClick={props.onTriggered}>
-			{props.type === 'labelbutton' && <LabelButton css={labelButtonCss} label={props.label} />}
+			{props.type === 'labelbutton' && <LabelButton css={labelButtonCss} label={props.label} sublabel={props.sublabel} />}
 		</div>
 	)
 	
@@ -38,8 +38,8 @@ MenuTrigger.propTypes = {
 	type: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
 	isFocused: PropTypes.bool.isRequired,
-	onTriggered: PropTypes.func.isRequired
-
+	onTriggered: PropTypes.func.isRequired,
+	sublabel: PropTypes.string.isRequired
 }
 
 

@@ -1,0 +1,16 @@
+@import (reference) "menu"; //use a Less file but do not output it
+
+.select_list {
+	border: @default-border-style;
+	border-top: 0;
+}
+.option {
+	font-size: 0.95em;
+	cursor: pointer;
+	padding: 8px 15px;
+
+	&:hover, &.selected {
+		background: #8dbfbd;
+		color: rgba(255,255,255,0.9);
+	}
+}

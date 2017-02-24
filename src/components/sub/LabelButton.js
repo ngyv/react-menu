@@ -6,12 +6,15 @@ function LabelButton (props) {
 	return (
 		<div className={props.css.label} >	
 			{props.label}
+			<div className={props.css.sublabel}>{props.sublabel}</div>
 		</div>
 	) 	
 }
 
 LabelButton.propTypes = {
-	css: PropTypes.object.isRequired
+	css: PropTypes.object.isRequired,
+	label: PropTypes.string.isRequired,
+	sublabel: PropTypes.string.isRequired
 }
 
 

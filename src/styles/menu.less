@@ -22,6 +22,7 @@ body {
 //-- Menu styles
 @background-color: #278481;
 @background-highlight-color: #2f827e;
+@background-hover-highlight-color: #41a29e;
 @trigger-font-color: white;
 @react-font-color: #eee;
 @border-color: rgba(255, 255, 255, 0.2);
@@ -32,6 +33,7 @@ body {
 @default-border-style: @default-border-width solid @border-color;
 
 .menu_container {
+	position: relative;
 	background: @background-color;
 	color: @trigger-font-color;
 	border: @default-border-style;
@@ -43,12 +45,16 @@ body {
 .menu_trigger {
 	min-width: 150px;
 	text-align: center;
+	cursor: pointer;
 
 	&.focus {
 		background: @background-highlight-color;
 		border-color: @border-highlight-color;
 	}
-
+	&:hover {
+		background: @background-hover-highlight-color;
+		border-color: @border-highlight-color;
+	}
 	
 }
 
@@ -60,5 +66,7 @@ body {
 
 	&.show {
 		display: block;
+		width: 100%;
+		position: absolute; // so that it doesn't stretch .flex_container and onClickOutside can work proper
 	}
 }

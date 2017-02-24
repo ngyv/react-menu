@@ -31,12 +31,17 @@ function getClassNames (props) {
 function MenuReact (props) {
 	return (
 		<div className={getClassNames(props)}>
-			{props.type === 'input' && <Input css={inputCss}  />}
-			{props.type === 'inputgroup' && <InputGroup css={inputGroupCss}  />}
-			{props.type === 'radiolabel' && <RadioLabel css={radioLabelCss}  />}
-			{props.type === 'radiolabelgroup' && <RadioLabelGroup css={radioLabelGroupCss}  />}
-			{props.type === 'selectlist' && <SelectList css={selectListCss}  />}
-			{props.type === 'selectrange' && <SelectRange css={selectRangeCss}  />}
+			{props.type === 'input' && <Input css={inputCss} name={props.name} value={props.value} onChangeValue={props.onChangeValue} />}
+
+			{props.type === 'inputgroup' && <InputGroup css={inputGroupCss} name={props.name} value={props.value}  onChangeValue={props.onChangeValue}  />}
+			
+			{props.type === 'radiolabel' && <RadioLabel css={radioLabelCss} name={props.name} value={props.value}  onChangeValue={props.onChangeValue}  />}
+			
+			{props.type === 'radiolabelgroup' && <RadioLabelGroup css={radioLabelGroupCss} name={props.name} value={props.value}  onChangeValue={props.onChangeValue}  />}
+			
+			{props.type === 'selectlist' && <SelectList css={selectListCss} name={props.name} name={props.name}value={props.value} onChangeValue={props.onChangeValue} selectionList={props.selectionList} />}
+			
+			{props.type === 'selectrange' && <SelectRange css={selectRangeCss} name={props.name} value={props.value}  onChangeValue={props.onChangeValue}  />}
 		</div>
 	)
 	
@@ -45,7 +50,12 @@ function MenuReact (props) {
 
 MenuReact.propTypes = {
 	css: PropTypes.object.isRequired,
-	type: PropTypes.string.isRequired
+	name: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired,
+	onChangeValue: PropTypes.func.isRequired,
+	value: PropTypes.string.isRequired,
+
+	selectionList: PropTypes.array
 }
 
 module.exports = MenuReact;
