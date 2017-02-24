@@ -1,13 +1,62 @@
+// Global
+body {
+	margin: 0;
+	font-family: 'Helvetica-Light'
+}
 
-.menu_trigger {
-	color: red;
-	&.focus {
-		background: yellow;
+//-- Menu composition
+.flex_container {
+	display: flex;
+	flex-direction: row;
+	// flex-wrap: wrap; // if you don't mind having more than 1 row
+	align-content: flex-start;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+.flex_item {
+	padding: 10px 15px;
+	overflow: hidden;
+}
+
+
+//-- Menu styles
+@background-color: #278481;
+@background-highlight-color: #2f827e;
+@trigger-font-color: white;
+@react-font-color: #eee;
+@border-color: rgba(255, 255, 255, 0.2);
+@border-highlight-color: #fff;
+@react-background-color: #50928f;
+
+@default-border-width: 2px;
+@default-border-style: @default-border-width solid @border-color;
+
+.menu_container {
+	background: @background-color;
+	color: @trigger-font-color;
+	border: @default-border-style;
+
+	& + .menu_container {
+		border-left: 0;
 	}
+}
+.menu_trigger {
+	min-width: 150px;
+	text-align: center;
+
+	&.focus {
+		background: @background-highlight-color;
+		border-color: @border-highlight-color;
+	}
+
+	
 }
 
 .menu_react {
 	display: none;
+	// position: absolute;
+	background: @react-background-color;
+	color: @react-font-color;
 
 	&.show {
 		display: block;

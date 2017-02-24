@@ -21,7 +21,7 @@ var selectRangeCss = require('../styles/selectRange.less');
 
 
 function getClassNames (props) {
-	return classnames(
+	return classnames (
 		props.css.menu_react,
 		props.isFocused ? props.css.show : ''
 	)
@@ -31,7 +31,6 @@ function getClassNames (props) {
 function MenuReact (props) {
 	return (
 		<div className={getClassNames(props)}>
-			Menu React :
 			{props.type === 'input' && <Input css={inputCss}  />}
 			{props.type === 'inputgroup' && <InputGroup css={inputGroupCss}  />}
 			{props.type === 'radiolabel' && <RadioLabel css={radioLabelCss}  />}

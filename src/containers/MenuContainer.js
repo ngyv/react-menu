@@ -15,19 +15,7 @@ var menuList = [
 		reactType: 'selectlist'
 	}
 ];
-function getMenu (option) {
-	return (
-		<Menu key={option.key} triggerType={option.triggerType} label={option.label} reactType={option.reactType} 
-			isFocused={(this.state.isFocused === option.key)} onTriggered={this.handleTriggered(option.key)}  />
-	)
-}
-function getMenuList () {
-	return (
-		<div>
-			{menuList.map(getMenu.bind(this))}
-		</div>
-	)
-}
+
 
 var MenuContainer = React.createClass({
 	getInitialState: function () {
@@ -37,18 +25,15 @@ var MenuContainer = React.createClass({
 	},
 	handleTriggered: function (type) {
 		return function() {
+			var prev = this.state;
 			this.setState({
-				isFocused: type
+				inFocus: (prev.inFocus != type) ? type : null
 			})
 		}.bind(this)
 	},
 	render: function () {
 		return (
-			<div>
-			{
-				getMenuList.bind(this)()
-			}
-			</div>
+			<Menu menuList={menuList} handleTriggered={this.handleTriggered} inFocus={this.state.inFocus}/>
 		)
 	}
 });
