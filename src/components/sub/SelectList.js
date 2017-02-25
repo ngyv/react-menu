@@ -11,7 +11,7 @@ function getClassNames (props, value) {
 function constructOption (option) {
 	return (
 		<div className={getClassNames(this, option.value)} key={option.value} value={option.value} 
-			onClick={this.onChangeValue(this.name, option.value.toString())}>{option.text}</div>
+			onClick={this.onChange(option.value.toString(), option.text)}>{option.text}</div>
 	)
 }
 
@@ -32,7 +32,7 @@ SelectList.propTypes = {
 	name: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
 	selectionList: PropTypes.array.isRequired,
-	onChangeValue: PropTypes.func.isRequired
+	onChange: PropTypes.func.isRequired
 }
 
 

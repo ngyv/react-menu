@@ -46,31 +46,25 @@ var MenuContainer = React.createClass({
 			})
 		}.bind(this)
 	},
-	// To update the value of the selected menu item
-	handleChangeValue: function (key, value) {
+	// To update the value of the selected menu item 
+	handleChangeValue: function (key, value, sublabel, toClose: false) {
 		return function() {
+			var inFocus = this.state.inFocus;
 			var updatedMenuList = this.state.menuList;
 			updatedMenuList[key].value = value.toString(); 
+			updatedMenuList[key].sublabel = sublabel; 
 
-			if(updatedMenuList[key].selectionList && updatedMenuList[key].selectionList.length) {
-				var selectedText = defaultSublabel;
-				updatedMenuList[key].selectionList.map(function(option) {
-					if(option.value.toString() === value) {
-						selectedText = option.text;
-					}
-				});
-				updatedMenuList[key].sublabel = selectedText;
-			}
+			console.log('handleChangeValue', updatedMenuList)
 
 			this.setState({
+				inFocus: toClose ? null : inFocus,
 				menuList: updatedMenuList
 			})
 		}.bind(this)
-	},
-	render: function () {
+	},	render: function () {
 		return (
 			<Menu menuList={this.state.menuList} handleTriggered={this.handleTriggered} handleChangeValue={this.handleChangeValue} 
-				 inFocus={this.state.inFocus ? this.state.inFocus  : ''} />
+				 resetMenuFocus={this.handleClickOutside} inFocus={this.state.inFocus ? this.state.inFocus  : ''} />
 		)
 	}
 });
