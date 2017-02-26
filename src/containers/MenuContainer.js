@@ -52,7 +52,7 @@ var MenuContainer = React.createClass({
 			var inFocus = this.state.inFocus;
 			var updatedMenuList = this.state.menuList;
 			updatedMenuList[key].value = value.toString(); 
-			updatedMenuList[key].sublabel = sublabel; 
+			updatedMenuList[key].sublabel = sublabel.length ? sublabel : defaultSublabel; 
 
 			console.log('handleChangeValue', updatedMenuList)
 

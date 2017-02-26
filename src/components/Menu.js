@@ -15,9 +15,11 @@ function constructMenu (key) {
 			<MenuTrigger css={menuCss} type={option.triggerType} label={option.label} sublabel={option.sublabel} 
 				isFocused={(this.inFocus === key)}  onTriggered={this.handleTriggered(key)} />
 
+
+			{this.inFocus === key && 	// don't render since it's hidden
 			<MenuReact css={menuCss} type={option.reactType} isFocused={(this.inFocus === key)} name={key} value={option.value} 
 				onChangeValue={this.handleChangeValue} 
-				selectionList={ (option.selectionList && option.selectionList.length) ? option.selectionList : undefined} />
+				selectionList={ (option.selectionList && option.selectionList.length) ? option.selectionList : undefined} />}
 
 		</span>
 	)

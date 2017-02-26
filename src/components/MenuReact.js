@@ -22,8 +22,7 @@ var selectRangeCss = require('../styles/selectRange.less');
 
 function getClassNames (props) {
 	return classnames (
-		props.css.menu_react,
-		props.isFocused ? props.css.show : ''
+		props.css.menu_react
 	)
 }
 

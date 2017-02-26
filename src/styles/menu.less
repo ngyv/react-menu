@@ -74,17 +74,11 @@ body {
 }
 
 .menu_react {
-	display: none;
-	// position: absolute;
+	position: absolute; // so that it doesn't stretch .flex_container and onClickOutside can work proper
 	background: @react-background-color;
 	color: @react-font-color;
-
-	&.show {
-		display: block;
-		width: 102%;    
-    	left: -1%;
-		position: absolute; // so that it doesn't stretch .flex_container and onClickOutside can work proper
-	}
+	width: 102%;  // align the borders
+    left: -1%;
 }
 
 
